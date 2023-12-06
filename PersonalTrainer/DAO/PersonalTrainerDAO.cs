@@ -16,7 +16,7 @@ namespace AcompanhamentoFisico.DAO
                 PersonalTrainerDTO personalTrainerDTO = new PersonalTrainerDTO();
                 PersonalTrainer personalTrainer = new PersonalTrainer();
 
-            string sql = "select id_personaltrainer,nome,CREF from Personal_trainer  where CREF=" + CREF;
+            string sql = "select id_personaltrainer,nome,CREF from Personal_trainer  where CREF=" + "'" +CREF + "'";
 
             SqlConnection con = new SqlConnection(conexao);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -91,7 +91,7 @@ namespace AcompanhamentoFisico.DAO
         public int deletaPersonalTrainer(String CREF)
         {
             String retorno = "";
-            string sql = "delete from dbo.Personal_Trainer where CREF = " + CREF;
+            string sql = "delete from dbo.Personal_Trainer where CREF = " + "'" +CREF + "'";
 
             SqlConnection con = new SqlConnection(conexao);
             SqlCommand cmd = new SqlCommand(sql, con);
